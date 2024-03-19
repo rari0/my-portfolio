@@ -37,17 +37,58 @@ modalCloseBtns.forEach((modalCloseBtns) => {
     });
   });
 });
-//About me section
-const typed = document.querySelector('.typed');
+//Portfolio section - Modal
+const portfolioModals = document.querySelectorAll(".portfolio-model");
+const imgCards = document.querySelectorAll(".img-card");
+const portfolioCloseBtns = document.querySelectorAll(".portfolio-close-btn");
 
-if(typed) {
-  let typed_strings = typed.getAttribute('data-typed-items');
-  typed_strings = typed_strings.split(',');
-  new Typed('.typed', {
-    string: typed_strings,
-    loop: true,
-    typeSpeed: 100,
-    backSpeed: 50,
-    backDelay: 2000
-  })
+var portfolioModal = function(modalClick){
+  portfolioModals[modalClick].classList.add("active");
 }
+
+imgCards.forEach((imgCards, i) => {
+  imgCards.addEventListener("click", () => {
+    portfolioModal(i);
+  });
+});
+
+portfolioCloseBtns.forEach((portfolioCloseBtns) => {
+  portfolioCloseBtns.addEventListener("click", () => {
+    portfolioModals.forEach((portfolioModalView) => {
+      portfolioModalView.classList.remove("active");
+    });
+  });
+});
+//Portfolio section - Slider
+var n_img = 2;
+var current = 1;
+
+function next(){
+    current++;
+    if(current > n_img){
+        current = 1;
+    }
+
+    for(var i = n_img; i > 0; i--){
+        document.querySelector("#img_slider img:nth-child(" + i + ")").style.display = "none";
+    }
+    document.querySelector("#img_slider img:nth-child(" + current + ")").style.display = "block";
+}
+//Navigation menu items active on page scroll
+window.addEventListener("scroll", () => {
+  const sections = document.querySelectorAll("section");
+  const scrollY = window.pageYOffset;
+
+  sections.forEach(current => {
+    let sectionHeight = current.offsetHeight;
+    let sectionTop = current.offsetTop - 50;
+    let id = current.getAttribute("id");
+
+    if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+      document.querySelector(".nav-items a[href*=" + id + "]").classList.add("active");
+    }
+    else{
+      document.querySelector(".nav-items a[href*=" + id + "]").classList.remove("active");
+    }
+  });
+});

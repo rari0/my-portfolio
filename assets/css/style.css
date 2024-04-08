@@ -1008,8 +1008,8 @@ footer a {
   }
 
   .home-container .home-logo img {
-    width: 60%;
-    transform: translate(80px, -90px);
+    width: 75%;
+    transform: translate(80px, -190px);
   }
 
   .home .home-container .info {
@@ -1041,5 +1041,11 @@ footer a {
 
   .contact-card .contact-btn .btn {
     font-size: 0.8rem;
+  }
+}
+@media screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+  .home-container .home-logo img {
+    width: 70%;
+    transform: translate(80px, -80px);
   }
 }

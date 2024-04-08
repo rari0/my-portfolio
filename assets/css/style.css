@@ -1043,7 +1043,7 @@ footer a {
     font-size: 0.8rem;
   }
 }
-@media screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+@media screen and (max-width: 390px) and (max-height: 844px) and (-webkit-device-pixel-ratio: 3) {
   .home-container .home-logo img {
     width: 70%;
     transform: translate(80px, -70px);

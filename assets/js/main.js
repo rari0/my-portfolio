@@ -8,7 +8,8 @@ function SendMail() {
   if (!name || !email || !subject || !message) {
     alert("Fill in all fields.");
     return;
-
+  }
+  
   var params = {
     from_name: name,
     email_id: email,

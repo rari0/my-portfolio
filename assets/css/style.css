@@ -1045,7 +1045,7 @@ footer a {
 }
 @media screen and (max-width: 390px) and (max-height: 844px) and (-webkit-device-pixel-ratio: 3) {
   .home-container .home-logo img {
-    width: 70%;
+    width: 75%;
     transform: translate(80px, -70px);
   }
 }

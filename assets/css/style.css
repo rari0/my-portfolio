@@ -1047,5 +1047,6 @@ footer a {
   .home-container .home-logo img {
     width: 75%;
     transform: translate(80px, -70px);
+    margin-top: 10px;
   }
 }

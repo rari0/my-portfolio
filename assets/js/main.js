@@ -1,15 +1,24 @@
 //Email Js
-function SendMail(){
-  var params = {
-    from_name : document.getElementById("name_id").value,
-    email_id : document.getElementById("email_id").value,
-    subject_id : document.getElementById("subject_id").value,
-    message : document.getElementById("message_id").value
-  }
+function SendMail() {
+  var name = document.getElementById("name_id").value;
+  var email = document.getElementById("email_id").value;
+  var subject = document.getElementById("subject_id").value;
+  var message = document.getElementById("message_id").value;
 
-  emailjs.send("service_yefp6xq", "template_4p0ffod", params).then(function (res) {
+  if (!name || !email || !subject || !message) {
+    alert("Fill in all fields.");
+    return;
+
+  var params = {
+    from_name: name,
+    email_id: email,
+    subject_id: subject,
+    message: message
+  };
+
+  emailjs.send("service_yefp6xq", "template_4p0ffod", params).then(function(res) {
     alert("Success!" + res.status);
-  })
+  });
 }
 //Navigation bar effects on scroll
 window.addEventListener("scroll", function(){

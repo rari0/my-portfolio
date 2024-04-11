@@ -30,11 +30,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
-meta[name=viewport] {
-      width: device-width;
-      initial-scale: 1.0;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -1053,5 +1048,11 @@ footer a {
     width: 75%;
     transform: translate(80px, -70px);
     margin-top: 10px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  meta[name=viewport] {
+    width: device-width;
+    initial-scale: 1.0;
   }
 }

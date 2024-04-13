@@ -1,25 +1,43 @@
 //Email Js
-function SendMail() {
-  var name = document.getElementById("name_id").value;
-  var email = document.getElementById("email_id").value;
-  var subject = document.getElementById("subject_id").value;
-  var message = document.getElementById("message_id").value;
+var emailjsScript = document.createElement('script');
+emailjsScript.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js";
+document.head.appendChild(emailjsScript);
 
-  if (!name || !email || !subject || !message) {
-    alert("Fill in all fields.");
+emailjsScript.onload = function() {
+  emailjs.init("YJauMTHe1NWFxoOMI");
+};
+
+function SendMail() {
+  var name = document.getElementById("name").value.trim();
+  var email = document.getElementById("email").value.trim();
+  var subject = document.getElementById("subject").value.trim();
+  var message = document.getElementById("message").value.trim();
+
+  if (name === '' || email === '' || subject === '' || message === '') {
+    alert("Please fill in all fields.");
     return;
   }
-  
-  var params = {
-    from_name: name,
-    email_id: email,
-    subject_id: subject,
+
+  const params = {
+    name: name,
+    email: email,
+    subject: subject,
     message: message
   };
 
-  emailjs.send("service_yefp6xq", "template_4p0ffod", params).then(function(res) {
-    alert("Success!" + res.status);
-  });
+  const serviceID = "service_ew9z1rg";
+  const templateID = "template_yd44a33";
+
+  emailjs.send(serviceID, templateID, params)
+    .then(res => {
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("subject").value = "";
+      document.getElementById("message").value = "";
+      console.log(res);
+      alert("Your message sent successfully!!");
+    })
+    .catch(err => console.log(err));
 }
 //Navigation bar effects on scroll
 window.addEventListener("scroll", function(){
